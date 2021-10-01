@@ -1,3 +1,5 @@
-var SplitPane = require('./lib/SplitPane');
+var SplitPane = require('./lib/SplitPane').default;
+var Pane = require('./lib/Pane');
 
-module.exports = SplitPane;
+exports.SplitPane = SplitPane;
+exports.Pane = Pane;

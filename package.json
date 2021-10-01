@@ -1,19 +1,19 @@
 {
-  "name": "react-split-pane",
+  "name": "@deviousm/react-split-pane",
   "description": "React split-pane component",
   "main": "index.js",
   "types": "index.d.ts",
-  "version": "2.0.3",
+  "version": "2.0.19",
   "repository": {
     "type": "git",
-    "url": "https://github.com/tomkp/react-split-pane"
+    "url": "https://github.com/DeviousM/react-split-pane"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/tomkp/react-split-pane"
+    "url": "https://github.com/DeviousM/react-split-pane"
   },
-  "homepage": "https://github.com/tomkp/react-split-pane",
-  "author": "tomkp <tom@tomkp.com>",
+  "homepage": "https://github.com/DeviousM/react-split-pane",
+  "author": "tomkp <tom@tomkp.com>, DeviousM <frozn@me.com>",
   "keywords": [
     "react",
     "react-component",
@@ -22,16 +22,15 @@
     "es6"
   ],
   "dependencies": {
-    "glamor": "^2.20.40",
-    "glamorous": "^4.11.2",
     "inline-style-prefixer": "^4.0.0",
     "normalize.css": "^7.0.0",
-    "styled-components": "^2.4.0",
     "prop-types": "^15.6.0",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0"
+    "styled-components": "^5.0.0"
   },
   "devDependencies": {
+    "@storybook/addon-actions": "^3.3.3",
+    "@storybook/addon-links": "^3.3.3",
+    "@storybook/react": "^3.3.3",
     "babel-cli": "^6.26.0",
     "babel-plugin-add-module-exports": "^0.2.1",
     "babel-plugin-transform-object-assign": "^6.22.0",
@@ -48,15 +47,12 @@
     "mochify": "^4.0.0",
     "mochify-istanbul": "^2.4.2",
     "prettier": "^1.9.2",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2",
     "sinon": "^5.0.7",
     "surge": "^0.19.0",
     "typescript": "^2.6.2",
-    "watchify": "^3.9.0",
-    "@storybook/react": "^3.3.3",
-    "@storybook/addon-actions": "^3.3.3",
-    "@storybook/addon-links": "^3.3.3"
+    "watchify": "^3.9.0"
   },
   "scripts": {
     "compile": "babel -d lib/ src/",

@@ -11,18 +11,18 @@ function PaneStyle({ split, initialSize, size, minSize, maxSize, resizersSize })
   const styleProp = {
     minSize: vertical ? 'minWidth' : 'minHeight',
     maxSize: vertical ? 'maxWidth' : 'maxHeight',
-    size: vertical ? 'width' : 'height'
+    size: vertical ? 'width' : 'height',
   };
 
   let style = {
     display: 'flex',
-    outline: 'none'
+    outline: 'none',
   };
 
   style[styleProp.minSize] = convertSizeToCssValue(minSize, resizersSize);
   style[styleProp.maxSize] = convertSizeToCssValue(maxSize, resizersSize);
 
-  switch(getUnit(value)) {
+  switch (getUnit(value)) {
     case 'ratio':
       style.flex = value;
       break;
@@ -36,22 +36,17 @@ function PaneStyle({ split, initialSize, size, minSize, maxSize, resizersSize })
   return style;
 }
 
-
 class Pane extends PureComponent {
   setRef = element => {
-    this.props.innerRef(this.props.index, element);
+    this.props.paneRef(this.props.index, element);
   };
 
   render() {
-    const { children, className } = this.props;
+    const { children, className, name } = this.props;
     const prefixedStyle = prefixAll(PaneStyle(this.props));
 
     return (
-      <div
-        className={className}
-        style={prefixedStyle}
-        ref={this.setRef}
-      >
+      <div className={className} style={prefixedStyle} ref={this.setRef} name={name}>
         {children}
       </div>
     );
@@ -60,12 +55,13 @@ class Pane extends PureComponent {
 
 Pane.propTypes = {
   children: PropTypes.node,
-  innerRef: PropTypes.func,
+  paneRef: PropTypes.func,
   index: PropTypes.number,
   className: PropTypes.string,
   initialSize: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   minSize: PropTypes.string,
   maxSize: PropTypes.string,
+  name: PropTypes.string,
 };
 
 Pane.defaultProps = {

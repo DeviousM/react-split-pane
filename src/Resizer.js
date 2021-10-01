@@ -7,10 +7,7 @@ const Wrapper = styled.div`
   z-index: 1;
   box-sizing: border-box;
   background-clip: padding-box;
-
-  :hover {
-    transition: all 2s ease;
-  }
+  transition: border 0.2s ease-in-out;
 `;
 
 const HorizontalWrapper = styled(Wrapper)`
@@ -21,15 +18,15 @@ const HorizontalWrapper = styled(Wrapper)`
   cursor: row-resize;
   width: 100%;
 
-  :hover {
+  &:hover {
     border-top: 5px solid rgba(0, 0, 0, 0.5);
     border-bottom: 5px solid rgba(0, 0, 0, 0.5);
   }
 
-  .disabled {
+  &.disabled {
     cursor: not-allowed;
   }
-  .disabled:hover {
+  &.disabled:hover {
     border-color: transparent;
   }
 `;
@@ -41,14 +38,14 @@ const VerticalWrapper = styled(Wrapper)`
   border-right: 5px solid rgba(255, 255, 255, 0);
   cursor: col-resize;
 
-  :hover {
+  &:hover {
     border-left: 5px solid rgba(0, 0, 0, 0.5);
     border-right: 5px solid rgba(0, 0, 0, 0.5);
   }
-  .disabled {
+  &.disabled {
     cursor: not-allowed;
   }
-  .disabled:hover {
+  &.disabled:hover {
     border-color: transparent;
   }
 `;
@@ -69,6 +66,7 @@ class Resizer extends Component {
       ref: _ => (this.resizer = _),
       'data-attribute': split,
       'data-type': 'Resizer',
+      className: 'splitpane-resizer',
       onMouseDown: event => onMouseDown(event, index),
       onTouchStart: event => {
         event.preventDefault();
@@ -92,11 +90,7 @@ class Resizer extends Component {
       },
     };
 
-    return split === 'vertical' ? (
-      <VerticalWrapper {...props} />
-    ) : (
-      <HorizontalWrapper {...props} />
-    );
+    return split === 'vertical' ? <VerticalWrapper {...props} /> : <HorizontalWrapper {...props} />;
   }
 }
 
