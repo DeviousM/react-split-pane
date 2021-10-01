@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { PureComponent, useRef } from 'react';
 import PropTypes from 'prop-types';
 
 import prefixAll from 'inline-style-prefixer/static';
@@ -37,16 +37,24 @@ function PaneStyle({ split, initialSize, size, minSize, maxSize, resizersSize })
 }
 
 class Pane extends PureComponent {
-  setRef = element => {
-    this.props.paneRef(this.props.index, element);
-  };
+  internalRef = React.createRef();
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.index !== this.props.index) {
+      this.props.paneRef(this.props.index, this.internalRef.current);
+    }
+  }
+
+  componentDidMount() {
+    this.props.paneRef(this.props.index, this.internalRef.current);
+  }
 
   render() {
     const { children, className, name } = this.props;
     const prefixedStyle = prefixAll(PaneStyle(this.props));
 
     return (
-      <div className={className} style={prefixedStyle} ref={this.setRef} name={name}>
+      <div className={className} style={prefixedStyle} ref={this.internalRef} name={name}>
         {children}
       </div>
     );
