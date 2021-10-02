@@ -2,14 +2,11 @@ import React from 'react';
 import SplitPane from '../../src/SplitPane';
 import Pane from '../../src/Pane';
 import Resizer from '../../src/Resizer';
-import {
-  findRenderedComponentWithType,
-  scryRenderedComponentsWithType,
-} from 'react-dom/test-utils';
+import { findRenderedComponentWithType, scryRenderedComponentsWithType } from 'react-dom/test-utils';
 import { findDOMNode } from 'react-dom';
 import chai from 'chai';
 
-import {calculatePointsBetween, getCentre, renderComponent, unmountComponent} from '../lib/utils';
+import { calculatePointsBetween, getCentre, renderComponent, unmountComponent } from '../lib/utils';
 
 const expect = chai.expect;
 
@@ -19,12 +16,7 @@ const log = (...args) => {
   if (debug) console.log(...['Asserter', ...args]);
 };
 
-
-
-
-
 //.....
-
 
 const asserter = (jsx, dimensions = {}) => {
   const splitPane = renderComponent(jsx, dimensions);
@@ -33,22 +25,18 @@ const asserter = (jsx, dimensions = {}) => {
   const findPanes = () => {
     log(`findPanes`);
     const components = scryRenderedComponentsWithType(component, Pane);
-    components.forEach(_ =>
-      log(findDOMNode(_).getBoundingClientRect())
-    );
+    components.forEach(_ => log(findDOMNode(_).getBoundingClientRect()));
     return components;
   };
 
   const findResizers = () => {
     log(`findResizers`);
     const components = scryRenderedComponentsWithType(component, Resizer);
-    components.forEach(_ =>
-      log(findDOMNode(_).getBoundingClientRect())
-    );
+    components.forEach(_ => log(findDOMNode(_).getBoundingClientRect()));
     return components;
   };
 
-  const getResizerBoundingRect = (resizerIndex) => {
+  const getResizerBoundingRect = resizerIndex => {
     const resizerNode = findDOMNode(findResizers()[resizerIndex]);
     return resizerNode.getBoundingClientRect();
   };
@@ -89,17 +77,11 @@ const asserter = (jsx, dimensions = {}) => {
     },
     assertNumberOfResizers(expected) {
       const resizers = findResizers();
-      expect(resizers.length).to.equal(
-        expected,
-        'Unexpected number of resizers'
-      );
+      expect(resizers.length).to.equal(expected, 'Unexpected number of resizers');
       return this;
     },
     assertOrientation(expected) {
-      expect(component.props['split']).to.eql(
-        expected,
-        'Unexpected split orientation'
-      );
+      expect(component.props['split']).to.eql(expected, 'Unexpected split orientation');
       return this;
     },
     assertRatios(expected) {
@@ -148,13 +130,13 @@ const asserter = (jsx, dimensions = {}) => {
       const coordinates = calculateMouseMove(resizerIndex, mousePositionDifference);
       const [startPosition, ...moveCoordinates] = coordinates;
       const event = {
-        preventDefault(){},
+        preventDefault() {},
         button: mouseRightClick ? 1 : 0,
-        ...startPosition
+        ...startPosition,
       };
 
       component.onMouseDown(event, resizerIndex);
-      moveCoordinates.forEach(coordinate => component.onMouseMove({...coordinate, preventDefault(){}}));
+      moveCoordinates.forEach(coordinate => component.onMouseMove({ ...coordinate, preventDefault() {} }));
       component.onMouseUp(event);
       return this;
     },
