@@ -1,13 +1,11 @@
-import React, {Component} from 'react';
-import {render} from 'react-dom';
+import React, { useState, useEffect } from 'react';
+import { render } from 'react-dom';
 import SplitPane from '../lib/SplitPane';
-import Pane from "../lib/Pane";
-
+import Pane from '../lib/Pane';
 
 const SimpleExample = () => {
   return (
     <section>
-
       <pre className="source">
         {`
         <SplitPane split="vertical">
@@ -20,25 +18,21 @@ const SimpleExample = () => {
       </pre>
 
       <div className="example">
-
         <SplitPane split="vertical">
           <Pane initialSize="200px">You can use a Pane component</Pane>
           <div>or you can use a plain old div</div>
-          <Pane initialSize="25%" minSize="10%" maxSize="500px">Using a Pane allows you to specify any constraints
-            directly</Pane>
+          <Pane initialSize="25%" minSize="10%" maxSize="500px">
+            Using a Pane allows you to specify any constraints directly
+          </Pane>
         </SplitPane>
-
       </div>
-
     </section>
   );
 };
 
-
 const SimpleNestedExample = () => {
   return (
     <section>
-
       <pre className="source">
         {`
           <SplitPane split="vertical">
@@ -55,30 +49,24 @@ const SimpleNestedExample = () => {
       </pre>
 
       <div className="example">
-
         <SplitPane split="vertical">
-          <Pane/>
-          <Pane/>
+          <Pane />
+          <Pane />
           <SplitPane split="horizontal">
-            <Pane/>
-            <Pane/>
-            <Pane/>
+            <Pane />
+            <Pane />
+            <Pane />
           </SplitPane>
-          <Pane/>
+          <Pane />
         </SplitPane>
-
       </div>
-
     </section>
   );
 };
 
-
-
 const MultiplePropsNestedExample = () => {
   return (
     <section>
-
       <pre className="source">
         {`
           <Pane initialSize="200px" minSize="200px" maxSize="600px">initialSize="200px" minSize="200px" maxSize="600px"</Pane>
@@ -91,27 +79,30 @@ const MultiplePropsNestedExample = () => {
       </pre>
 
       <div className="example">
-
         <SplitPane split="vertical">
-          <Pane initialSize="200px" minSize="200px" maxSize="600px">initialSize="100px" minSize="100px" maxSize="600px"</Pane>
-          <Pane minSize="20%" maxSize="80%">minSize="20%" maxSize="80%"</Pane>
+          <Pane initialSize="200px" minSize="200px" maxSize="600px">
+            initialSize="100px" minSize="100px" maxSize="600px"
+          </Pane>
+          <Pane minSize="20%" maxSize="80%">
+            minSize="20%" maxSize="80%"
+          </Pane>
           <SplitPane split="horizontal">
-            <Pane minSize="10%" maxSize="600px">minSize="10%" maxSize="600px"</Pane>
-            <Pane initialSize="50%" minSize="50px" maxSize="80%">initialSize="50%" minSize="50px" maxSize="80%"</Pane>
+            <Pane minSize="10%" maxSize="600px">
+              minSize="10%" maxSize="600px"
+            </Pane>
+            <Pane initialSize="50%" minSize="50px" maxSize="80%">
+              initialSize="50%" minSize="50px" maxSize="80%"
+            </Pane>
           </SplitPane>
         </SplitPane>
-
       </div>
-
     </section>
   );
 };
 
-
 const BasicVerticalExample = () => {
   return (
     <section>
-
       <pre className="source">
         {`
         <SplitPane split="vertical">
@@ -122,14 +113,11 @@ const BasicVerticalExample = () => {
       </pre>
 
       <div className="example">
-
         <SplitPane split="vertical">
           <div>This is a div</div>
           <div>This is a div</div>
         </SplitPane>
-
       </div>
-
     </section>
   );
 };
@@ -137,7 +125,6 @@ const BasicVerticalExample = () => {
 const BasicHorizontalExample = () => {
   return (
     <section>
-
       <pre className="source">
         {`
           <SplitPane split="horizontal">
@@ -148,12 +135,10 @@ const BasicHorizontalExample = () => {
       </pre>
 
       <div className="example">
-
         <SplitPane split="horizontal">
           <div>This is a div</div>
           <div>This is a div</div>
         </SplitPane>
-        
       </div>
     </section>
   );
@@ -162,7 +147,6 @@ const BasicHorizontalExample = () => {
 const BasicVerticalPaneExample = () => {
   return (
     <section>
-
       <pre className="source">
         {`
           <SplitPane split="vertical">
@@ -173,12 +157,10 @@ const BasicVerticalPaneExample = () => {
       </pre>
 
       <div className="example">
-
         <SplitPane split="vertical">
           <Pane>This is a Pane</Pane>
           <Pane>This is a Pane</Pane>
         </SplitPane>
-        
       </div>
     </section>
   );
@@ -187,7 +169,6 @@ const BasicVerticalPaneExample = () => {
 const BasicHorizontalPaneExample = () => {
   return (
     <section>
-
       <pre className="source">
         {`
           <SplitPane split="horizontal">
@@ -198,12 +179,10 @@ const BasicHorizontalPaneExample = () => {
       </pre>
 
       <div className="example">
-
         <SplitPane split="horizontal">
           <Pane>This is a Pane</Pane>
           <Pane>This is a Pane</Pane>
         </SplitPane>
-
       </div>
     </section>
   );
@@ -212,7 +191,6 @@ const BasicHorizontalPaneExample = () => {
 const PanesAndDivsExample = () => {
   return (
     <section>
-
       <pre className="source">
         {`
           <SplitPane split="horizontal">
@@ -223,12 +201,10 @@ const PanesAndDivsExample = () => {
       </pre>
 
       <div className="example">
-
         <SplitPane split="horizontal">
           <Pane>This is a Pane</Pane>
           <div>This is a div</div>
         </SplitPane>
-
       </div>
     </section>
   );
@@ -237,7 +213,6 @@ const PanesAndDivsExample = () => {
 const InitialPercentageVerticalExample = () => {
   return (
     <section>
-
       <pre className="source">
         {`
           <SplitPane>
@@ -248,12 +223,10 @@ const InitialPercentageVerticalExample = () => {
       </pre>
 
       <div className="example">
-
         <SplitPane>
           <Pane initialSize="20%">This Pane has initial size of 20%</Pane>
-          <Pane/>
+          <Pane />
         </SplitPane>
-
       </div>
     </section>
   );
@@ -262,7 +235,6 @@ const InitialPercentageVerticalExample = () => {
 const InitialPercentageHorizontalExample = () => {
   return (
     <section>
-
       <pre className="source">
         {`
           <SplitPane split="horizontal">
@@ -273,22 +245,18 @@ const InitialPercentageHorizontalExample = () => {
       </pre>
 
       <div className="example">
-
         <SplitPane split="horizontal">
-          <Pane/>
+          <Pane />
           <Pane initialSize="20%">This Pane has initial size of 20%</Pane>
         </SplitPane>
-
       </div>
     </section>
   );
 };
 
-
 const InitialPxVerticalExample = () => {
   return (
     <section>
-
       <pre className="source">
         {`
           <SplitPane>
@@ -299,21 +267,18 @@ const InitialPxVerticalExample = () => {
       </pre>
 
       <div className="example">
-
         <SplitPane>
           <Pane initialSize="200px">This Pane has initial size of 200px</Pane>
-          <Pane/>
+          <Pane />
         </SplitPane>
-
       </div>
-    </section>  
+    </section>
   );
 };
 
 const InitialPxHorizontalExample = () => {
   return (
     <section>
-
       <pre className="source">
         {`
           <SplitPane split="horizontal">
@@ -324,21 +289,18 @@ const InitialPxHorizontalExample = () => {
       </pre>
 
       <div className="example">
-
         <SplitPane split="horizontal">
-          <Pane/>
+          <Pane />
           <Pane initialSize="200px">This Pane has initial size of 200px</Pane>
         </SplitPane>
-
       </div>
-    </section>  );
+    </section>
+  );
 };
-
 
 const MinPercentageVerticalExample = () => {
   return (
     <section>
-
       <pre className="source">
         {`
           <SplitPane>
@@ -349,12 +311,10 @@ const MinPercentageVerticalExample = () => {
       </pre>
 
       <div className="example">
-
         <SplitPane>
           <Pane minSize="20%">This Pane has a minimum size of 20%</Pane>
-          <Pane/>
+          <Pane />
         </SplitPane>
-
       </div>
     </section>
   );
@@ -363,7 +323,6 @@ const MinPercentageVerticalExample = () => {
 const MinPercentageHorizontalExample = () => {
   return (
     <section>
-
       <pre className="source">
         {`
           <SplitPane split="horizontal">
@@ -374,22 +333,18 @@ const MinPercentageHorizontalExample = () => {
       </pre>
 
       <div className="example">
-
         <SplitPane split="horizontal">
           <Pane minSize="20%">This Pane has a minimum size of 20%</Pane>
-          <Pane/>
+          <Pane />
         </SplitPane>
-
       </div>
     </section>
   );
 };
 
-
 const MinPxVerticalExample = () => {
   return (
     <section>
-
       <pre className="source">
         {`
           <SplitPane>
@@ -400,21 +355,18 @@ const MinPxVerticalExample = () => {
       </pre>
 
       <div className="example">
-
         <SplitPane>
           <Pane minSize="200px">This Pane has a minimum size of 200px</Pane>
-          <Pane/>
+          <Pane />
         </SplitPane>
-
       </div>
-    </section>  
+    </section>
   );
 };
 
 const MinPxHorizontalExample = () => {
   return (
     <section>
-
       <pre className="source">
         {`
           <SplitPane split="horizontal">
@@ -425,22 +377,18 @@ const MinPxHorizontalExample = () => {
       </pre>
 
       <div className="example">
-
         <SplitPane split="horizontal">
           <Pane minSize="200px">This Pane has a minimum size of 200px</Pane>
-          <Pane/>
+          <Pane />
         </SplitPane>
-
       </div>
     </section>
   );
 };
 
-
 const MaxPercentageVerticalExample = () => {
   return (
     <section>
-
       <pre className="source">
         {`
           <SplitPane>
@@ -451,12 +399,10 @@ const MaxPercentageVerticalExample = () => {
       </pre>
 
       <div className="example">
-
         <SplitPane>
           <Pane maxSize="20%">This Pane has a maximum size of 20%</Pane>
-          <Pane/>
+          <Pane />
         </SplitPane>
-
       </div>
     </section>
   );
@@ -465,7 +411,6 @@ const MaxPercentageVerticalExample = () => {
 const MaxPercentageHorizontalExample = () => {
   return (
     <section>
-
       <pre className="source">
         {`
           <SplitPane split="horizontal">
@@ -476,22 +421,18 @@ const MaxPercentageHorizontalExample = () => {
       </pre>
 
       <div className="example">
-
         <SplitPane split="horizontal">
           <Pane maxSize="20%">This Pane has a maximum size of 20%</Pane>
-          <Pane/>
+          <Pane />
         </SplitPane>
-
       </div>
     </section>
   );
 };
 
-
 const MaxPxVerticalExample = () => {
   return (
     <section>
-
       <pre className="source">
         {`
           <SplitPane>
@@ -502,12 +443,10 @@ const MaxPxVerticalExample = () => {
       </pre>
 
       <div className="example">
-
         <SplitPane>
           <Pane maxSize="200px">This Pane has a maximum size of 200px</Pane>
-          <Pane/>
+          <Pane />
         </SplitPane>
-
       </div>
     </section>
   );
@@ -516,7 +455,6 @@ const MaxPxVerticalExample = () => {
 const MaxPxHorizontalExample = () => {
   return (
     <section>
-
       <pre className="source">
         {`
           <SplitPane split="horizontal">
@@ -527,22 +465,18 @@ const MaxPxHorizontalExample = () => {
       </pre>
 
       <div className="example">
-
         <SplitPane split="horizontal">
           <Pane maxSize="200px">This Pane has a maximum size of 200px</Pane>
-          <Pane/>
+          <Pane />
         </SplitPane>
-
       </div>
     </section>
   );
 };
 
-
 const MultipleVerticalExample = () => {
   return (
     <section>
-
       <pre className="source">
         {`
           <SplitPane split="vertical">
@@ -555,14 +489,12 @@ const MultipleVerticalExample = () => {
       </pre>
 
       <div className="example">
-
         <SplitPane split="vertical">
-          <div/>
-          <div/>
-          <div/>
-          <div/>
+          <div />
+          <div />
+          <div />
+          <div />
         </SplitPane>
-
       </div>
     </section>
   );
@@ -571,7 +503,6 @@ const MultipleVerticalExample = () => {
 const MultipleHorizontalExample = () => {
   return (
     <section>
-
       <pre className="source">
         {`
           <SplitPane split="horizontal">
@@ -584,14 +515,12 @@ const MultipleHorizontalExample = () => {
       </pre>
 
       <div className="example">
-
         <SplitPane split="horizontal">
-          <div/>
-          <div/>
-          <div/>
-          <div/>
+          <div />
+          <div />
+          <div />
+          <div />
         </SplitPane>
-
       </div>
     </section>
   );
@@ -600,7 +529,6 @@ const MultipleHorizontalExample = () => {
 const SubComponentExample = () => {
   return (
     <section>
-
       <pre className="source">
         {`
           <div className="parent">
@@ -616,22 +544,54 @@ const SubComponentExample = () => {
       </pre>
 
       <div className="example">
-
         <div className="parent">
           <div className="header">Header</div>
           <div className="wrapper">
             <SplitPane split="horizontal">
-              <div/>
-              <div/>
+              <div />
+              <div />
             </SplitPane>
           </div>
         </div>
-
       </div>
     </section>
   );
 };
 
+const AsyncPanelsExample = () => {
+  const [showRightPane, setShowRightPane] = useState(false);
+  const [viewLoaded, setViewLoaded] = useState(false);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setViewLoaded(true);
+    }, 1000);
+
+    setTimeout(() => {
+      setShowRightPane(true);
+    }, 600);
+  }, []);
+
+  return (
+    <section>
+      <pre className="source">
+        {`
+        <SplitPane split="vertical">
+          {viewLoaded && <Pane name="leftPane">I appear after 1000 ms</Pane>}
+          {showRightPane && <Pane name="rightPane">I appear after 600 ms</Pane>}
+        </SplitPane>
+        `}
+      </pre>
+
+      <div className="example">
+        <SplitPane split="vertical">
+          {viewLoaded && <Pane name="leftPane">I appear after 1000 ms</Pane>}
+          {showRightPane && <Pane name="rightPane">I appear after 600 ms</Pane>}
+        </SplitPane>
+      </div>
+    </section>
+  );
+};
 
 const examples = {
   SimpleExample,
@@ -657,13 +617,11 @@ const examples = {
   BasicHorizontalExample,
   BasicVerticalExample,
   PanesAndDivsExample,
+  AsyncPanelsExample,
 };
 
-
 const name = document.location.search.substr(1);
-const component = examples[name];
-if (component) {
-  render(component(), document.getElementById('root'));
+const Component = examples[name];
+if (Component) {
+  render(<Component />, document.getElementById('root'));
 }
-
-
