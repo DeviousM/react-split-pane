@@ -3,7 +3,7 @@
   "description": "React split-pane component",
   "main": "index.js",
   "types": "index.d.ts",
-  "version": "2.0.25",
+  "version": "3.0.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/DeviousM/react-split-pane"
@@ -24,8 +24,10 @@
   "dependencies": {
     "inline-style-prefixer": "^4.0.0",
     "normalize.css": "^7.0.0",
-    "prop-types": "^15.6.0",
-    "styled-components": "^5.0.0"
+    "prop-types": "^15.6.0"
+  },
+  "peerDependencies": {
+    "styled-components": "6.x"
   },
   "devDependencies": {
     "@storybook/addon-actions": "^3.3.3",
@@ -50,6 +52,7 @@
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
     "sinon": "^5.0.7",
+    "styled-components": "^6.1.19",
     "surge": "^0.19.0",
     "typescript": "^2.6.2",
     "watchify": "^3.9.0"
